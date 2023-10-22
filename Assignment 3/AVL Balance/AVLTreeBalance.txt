@@ -1,0 +1,155 @@
+// kindly use any monospaced font to view this file
+
+AVLNode {
+    int val;
+    int height;
+    AVLNode right;
+    AVLNode left;
+    AVLNode parent;
+}
+
+AVLInsert(root, val) {
+    AVLNode newNode = BSTInsert(root, val);
+    parent = newNode.parent;
+    while (parent != null) {
+        leftHeight = parent.leftChild.height;
+        rightHeight = parent.rightChild.height;
+        if (abs(leftHeight - rightHeight) != 0) {
+            AVLBalance(parent);
+            break;
+        } else {
+            parent = parent.parent;
+        }
+    }
+}
+
+AVLBalance(n1) {
+    if (n1 == null) return;
+
+    // labelling nodes
+    leftHeight = n1.leftChild.height;
+    rightHeight = n1.rightChild.height;
+    if (leftHeight > rightHeight) n2 = n1.leftChild;
+    else n2 = n1.rightChild;
+
+    leftHeight = n2.leftChild.height;
+    rightHeight = n2.rightChild.height;
+    if (leftHeight > rightHeight) n3 = n2.leftChild;
+    else n3 = n2.rightChild;
+
+    // checking for each case and balance
+    if (n2 = n1.leftChild && n3 = n2.leftChild) AVLBalanceLeftStraightLine(n1,n2,n3);
+    if (n2 = n1.rightChild && n3 = n2.rightChild) AVLBalanceRightStraightLine(n1,n2,n3);
+    if (n2 = n1.leftChild && n3 = n2.rightChild) AVLBalanceLeftZigZag(n1,n2,n3);
+    if (n2 = n1.rightChild && n3 = n2.leftChild) AVLBalanceRightZigZag(n1,n2,n3);
+
+    // continue balancing until you reach the root node
+    AVLBalance(n1.parent);
+}
+
+         n1                               n2
+        / \                            /     \
+       n2  d       Rotate            n3       n1
+      / \        - - - - - ->      /   \     /   \
+     n3  c                        a     b   c     d
+    / \
+   a   b
+
+AVLBalanceLeftStraightLine(n1,n2,n3) {
+    n1Parent = n1.parent;
+    n2RightChild = n2.rightChild;
+    
+    // changing n1's parent's child
+    if (n1 == n1Parent.leftChild) n1Parent.leftChild = n2;
+    else n1Parent.rightChild = n2;
+    n2.parent = n1Parent;
+    
+    // n1 becomes n2's right child
+    n1.parent = n2;
+    n2.rightChild = n1;
+    
+    // n2's right child becomes n1's left child
+    n1.leftChild = n2RightChild;
+    n2RightChild.parent = n1;
+}
+
+      n1                                  n2
+     /  \                              /     \
+    a    n2         Rotate           n1       n3
+        /  \       - - - - >       /   \     /   \
+      b    n3                     a     b   c     d
+           /  \
+          c    d
+
+AVLBalanceRightStraightLine(n1,n2,n3) {
+    n1.parent = n1Parent;
+    n2LeftChild = n2.leftChild;
+
+    // changing n1's parent's child
+    if (n1 == n1Parent.leftChild) n1Parent.leftChild = n2;
+    else n1Parent.rightChild = n2;
+    n2.parent = n1Parent;
+
+    // n1 becomes n2's left child
+    n1.parent = n2;
+    n2.leftChild = n1;
+
+    // n2's left child becomes n1's right child
+    n1.rightChild = n2LeftChild;
+    n2LeftChild.parent = n1;
+}
+
+
+     n1                         n1   
+    /  \                      /   \ 
+   n2   d    Rotate         n3     d
+  /  \      - - - - >      /  \    
+a    n3                   n2   c 
+    /  \                 /  \
+   b    c               a    b
+
+AVLBalanceLeftZigZag(n1,n2,n3) {
+    n3LeftChild = n3.leftChild;
+
+    // n1 becomes n3's parent
+    n1.leftChild = n3;
+    n3.parent = n1;
+
+    // n3 becomes n2's parent
+    n2.parent = n3;
+    n3.leftChild = n2;
+
+    // n3's left child becomes n2's right child
+    n2.rightChild = n3LeftChild;
+    n3LeftChild.parent = n2;
+
+    // balance left straight line
+    AVLBalanceLeftStraightLine(n1,n3,n2);
+}
+
+     n1                    n1
+    /  \                 /   \
+   d   n2     Rotate    d     n3
+      /  \   - - - - >       /  \
+     n3   a                 b    n2
+    /  \                        /  \
+   b    c                      c    a
+
+AVLBalanceRightZigZag(n1,n2,n3) {
+    n3RightChild = n3.rightChild;
+
+    // n1 becomes n3's parent
+    n1.rightChild = n3;
+    n3.parent = n1;
+
+    // n3 becomes n2's parent
+    n2.parent = n3;
+    n3.rightChild = n2;
+
+    // n3's right child becomes n2's left child
+    n2.leftChild = n3RightChild;
+    n3RightChild.parent = n2;
+
+    // balance right straight line
+    AVLBalanceRightStraightLine(n1,n3,n2);
+}
