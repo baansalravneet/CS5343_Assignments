@@ -1,0 +1,174 @@
+
+Hash Table initialised with size: 31
+
+Word to Insert: Cat
+Hash Value (index): 20
+No collision. Cat inserted at index 20
+
+Word to Insert: Blue
+Hash Value (index): 13
+No collision. Blue inserted at index 13
+
+Word to Insert: Dance
+Hash Value (index): 23
+No collision. Dance inserted at index 23
+
+Word to Insert: Happy
+Hash Value (index): 13
+Collision found at 13. Existing word: Blue
+Probing...
+Empty position found: 14
+
+Word to Insert: Cloud
+Hash Value (index): 24
+No collision. Cloud inserted at index 24
+
+Word to Insert: Garden
+Hash Value (index): 0
+No collision. Garden inserted at index 0
+
+Word to Insert: Elephant
+Hash Value (index): 0
+Collision found at 0. Existing word: Garden
+Probing...
+Empty position found: 1
+
+Word to Insert: Whisper
+Hash Value (index): 30
+No collision. Whisper inserted at index 30
+
+Word to Insert: Rocket
+Hash Value (index): 12
+No collision. Rocket inserted at index 12
+
+Word to Insert: Sunset
+Hash Value (index): 21
+No collision. Sunset inserted at index 21
+
+Word to Insert: Laptop
+Hash Value (index): 30
+Collision found at 30. Existing word: Whisper
+Probing...
+Probing: 0. Collision Found. Existing word: Garden
+Empty position found: 3
+
+Word to Insert: Forest
+Hash Value (index): 18
+No collision. Forest inserted at index 18
+
+Word to Insert: Basket
+Hash Value (index): 0
+Collision found at 0. Existing word: Garden
+Probing...
+Probing: 1. Collision Found. Existing word: Elephant
+Empty position found: 4
+
+Word to Insert: Turtle
+Hash Value (index): 28
+No collision. Turtle inserted at index 28
+
+Word to Insert: Window
+Hash Value (index): 22
+No collision. Window inserted at index 22
+
+Word to Insert: Puzzle
+Hash Value (index): 21
+Collision found at 21. Existing word: Sunset
+Probing...
+Probing: 22. Collision Found. Existing word: Window
+Empty position found: 25
+
+Load Factor crossed. Increasing size...
+Inserts: 16
+Collisions so far: 8
+Setting the table size to: 67
+Hash Table initialised with size: 67
+
+Word to Insert: Garden
+Hash Value (index): 32
+No collision. Garden inserted at index 32
+
+Word to Insert: Elephant
+Hash Value (index): 6
+No collision. Elephant inserted at index 6
+
+Word to Insert: Laptop
+Hash Value (index): 1
+No collision. Laptop inserted at index 1
+
+Word to Insert: Basket
+Hash Value (index): 14
+No collision. Basket inserted at index 14
+
+Word to Insert: Rocket
+Hash Value (index): 9
+No collision. Rocket inserted at index 9
+
+Word to Insert: Blue
+Hash Value (index): 64
+No collision. Blue inserted at index 64
+
+Word to Insert: Happy
+Hash Value (index): 17
+No collision. Happy inserted at index 17
+
+Word to Insert: Forest
+Hash Value (index): 1
+Collision found at 1. Existing word: Laptop
+Probing...
+Empty position found: 2
+
+Word to Insert: Cat
+Hash Value (index): 31
+No collision. Cat inserted at index 31
+
+Word to Insert: Sunset
+Hash Value (index): 3
+No collision. Sunset inserted at index 3
+
+Word to Insert: Window
+Hash Value (index): 50
+No collision. Window inserted at index 50
+
+Word to Insert: Dance
+Hash Value (index): 22
+No collision. Dance inserted at index 22
+
+Word to Insert: Cloud
+Hash Value (index): 40
+No collision. Cloud inserted at index 40
+
+Word to Insert: Puzzle
+Hash Value (index): 3
+Collision found at 3. Existing word: Sunset
+Probing...
+Empty position found: 4
+
+Word to Insert: Turtle
+Hash Value (index): 16
+No collision. Turtle inserted at index 16
+
+Word to Insert: Whisper
+Hash Value (index): 65
+No collision. Whisper inserted at index 65
+
+Word to Insert: Lantern
+Hash Value (index): 1
+Collision found at 1. Existing word: Laptop
+Probing...
+Probing: 2. Collision Found. Existing word: Forest
+Empty position found: 5
+
+Word to Insert: Castle
+Hash Value (index): 42
+No collision. Castle inserted at index 42
+
+Word to Insert: Bicycle
+Hash Value (index): 18
+No collision. Bicycle inserted at index 18
+
+Word to Insert: Harmony
+Hash Value (index): 61
+No collision. Harmony inserted at index 61
+
+Number of collisions: 4
